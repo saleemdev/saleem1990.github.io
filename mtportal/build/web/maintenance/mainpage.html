@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>MTRH Ticketing & Equipment Maintenance</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+        <link rel="stylesheet" href="../css/bootstrap-responsive.min.css" />
+
+        <!-- Custom styles for this template -->
+        <link href="css/modern-business.css" rel="stylesheet">
+
+
+
+        <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+
+        <link rel="stylesheet" href="../dist/css/select2.min.css">
+
+        <link rel="stylesheet" href="../css/opensans.css">
+
+        <style>
+            .modal {
+                /*position: absolute;*/
+
+                position:fixed;
+                top:0;
+                right:0;
+                bottom:0;
+                left:0;
+                z-index:1050;
+                display:none;
+                overflow:hidden;
+                -webkit-overflow-scrolling:touch;
+                outline:0
+
+
+            }.modal-dialog{
+                overflow-y: initial;
+            }.modal-body{
+                height: 500px;
+                overflow-y: auto
+            }
+
+            .search {
+                width: 100%;
+                position: relative;
+                display: flex;
+            }
+
+            .searchTerm {
+                width: 100%;
+                border: 3px solid #00B4CC;
+                border-right: none;
+                padding: 5px;
+                height: 20px;
+                border-radius: 5px 0 0 5px;
+                outline: none;
+                color: #9DBFAF;
+            }
+
+            .searchTerm:focus{
+                color: #00B4CC;
+            }
+
+            .searchButton {
+                width: 40px;
+                height: 36px;
+                border: 1px solid #00B4CC;
+                background: #00B4CC;
+                text-align: center;
+                color: #fff;
+                border-radius: 0 5px 5px 0;
+                cursor: pointer;
+                font-size: 20px;
+            }
+
+            /*Resize the wrap to see the search bar change!*/
+            .wrap{
+                width: 30%;
+                position: absolute;
+                top: 15%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <!-- Navigation -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="mainpage.html">Ticketing & Maintenance System</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link fa fa-home" href="/mtportal/">Home</a>
+                        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <li class="nav-item">
+                            <a class="nav-link" id="newirid"  onclick="newIR()">New Service Request</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/mtportal/maintenance/workorder.html">Work Order</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Analytics</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact Information</a>
+                        </li>
+
+
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <header>
+            <div class="wrap">
+                <div class="search">
+                    <input id="searchveh" type="text" class="form-control" placeholder="What are you looking for?">
+                    <button type="submit" class="searchButton">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <div class="container">
+
+            <h1 id="mylogin" class="my-4">Welcome</h1>
+
+            <!-- Marketing Icons Section -->
+
+            <div class="row">
+
+
+                <table id="taskspending" class="table table-bordered">
+                    <tr>
+                        <th style="width: 10px">#</th>
+                        <th>Task Details</th>
+                        <th>Progress</th>
+                        <th style="width: 40px">Percent</th>
+                    </tr>
+                    <tbody id="taskpendingtbd">
+                        <!-- <tr>
+                             <td>1.</td>
+                             <td>Update software</td>
+                             <td>
+                                 <div class="progress progress-xs">
+                                     <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                 </div>
+                             </td>
+                             <td><span class="badge bg-red">55%</span></td>
+                         </tr>-->
+                    </tbody>
+                    <!-- <tr>
+                         <td>2.</td>
+                         <td>Clean database</td>
+                         <td>
+                             <div class="progress progress-xs">
+                                 <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                             </div>
+                         </td>
+                         <td><span class="badge bg-yellow">70%</span></td>
+                     </tr>
+                     <tr>
+                         <td>3.</td>
+                         <td>Cron job running</td>
+                         <td>
+                             <div class="progress progress-xs progress-striped active">
+                                 <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                             </div>
+                         </td>
+                         <td><span class="badge bg-light-blue">30%</span></td>
+                     </tr>
+                     <tr>
+                         <td>4.</td>
+                         <td>Fix and squish bugs</td>
+                         <td>
+                             <div class="progress progress-xs progress-striped active">
+                                 <div class="progress-bar progress-bar-success" style="width: 100%"></div>
+                             </div>
+                         </td>
+                         <td><span class="badge bg-green">100%</span></td>
+                     </tr>-->
+                </table>
+
+            </div>
+            <!-- /.row -->
+
+            <!-- Portfolio Section -->
+            <!--    <h2>Portfolio Heading</h2>
+          
+                <div class="row">
+                  <div class="col-lg-4 col-sm-6 portfolio-item">
+                    <div class="card h-100">
+                      <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="#">Project One</a>
+                        </h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-sm-6 portfolio-item">
+                    <div class="card h-100">
+                      <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="#">Project Two</a>
+                        </h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-sm-6 portfolio-item">
+                    <div class="card h-100">
+                      <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="#">Project Three</a>
+                        </h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure perspiciatis mollitia recusandae vero vel quam!</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-sm-6 portfolio-item">
+                    <div class="card h-100">
+                      <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="#">Project Four</a>
+                        </h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-sm-6 portfolio-item">
+                    <div class="card h-100">
+                      <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="#">Project Five</a>
+                        </h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-sm-6 portfolio-item">
+                    <div class="card h-100">
+                      <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="#">Project Six</a>
+                        </h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates, nemo repellat fugiat excepturi! Nemo, esse.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>-->
+            <!-- /.row -->
+
+            <!-- Features Section -->
+            <!--<div class="row">
+              <div class="col-lg-6">
+                <h2>Modern Business Features</h2>
+                <p>The Modern Business template by Start Bootstrap includes:</p>
+                <ul>
+                  <li>
+                    <strong>Bootstrap v4</strong>
+                  </li>
+                  <li>jQuery</li>
+                  <li>Font Awesome</li>
+                  <li>Working contact form with validation</li>
+                  <li>Unstyled page elements for easy customization</li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
+              </div>
+              <div class="col-lg-6">
+                <img class="img-fluid rounded" src="http://placehold.it/700x450" alt="">
+              </div>
+            </div>
+            <!-- /.row -->
+
+            <hr>
+
+            <!-- Call to Action Section -->
+            <!-- Footer -->
+            <div class="modal fade" id="realticket" >
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 id="titleid">New Intervention Request</h2>
+
+                            <button id="closeAdmin" type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <div class="modal-body">        
+                            <br>
+                            <div class="widget-content nopadding">
+
+                                <strong>   Requester:</strong>
+                                <input type="text" maxlength="20" class="form-control" id="requesterid" placeholder="Name of the person raising issue.." autocomplete="off" spellcheck="">
+
+                                
+                                <strong> Type of issue:</strong>
+                                <button class="btn btn-primary">Add an issunnne</button><br>
+                                <div class="form-group">
+                                    <select id="typeofissueid" class="form-control select2"  style="width: 100%;">
+                                        <option value ="-" selected="selected">-</option>  
+                                        <option>Computer hardware issue</option>
+                                        <option>Software(General) issue</option>
+                                        <option>Software(ERP) issue</option>                                        
+                                        <option>Printer issue</option>
+                                        <option>Telephone(PABX) issue</option>
+                                        <option>Administrative issue</option>
+                                        <option>Other</option>
+
+                                    </select>
+                                </div>
+
+                                <strong> Location/Area:</strong>
+                                <div class="form-group">
+                                    <select id="locid" class="form-control select2"  style="width: 100%;" >
+                                        <option value ="-" selected="selected">-</option>                          
+                                    </select>
+                                </div>
+
+
+                                <strong>Brief description of issue:</strong>
+
+                                <input type="text"  class="form-control" id="comments" style="height:100px; line-height: 18px; padding-top: -50px" placeholder="Brief description of the problem" autocomplete="off">
+
+
+                                
+                                <strong> Select Staff to add to Section:</strong>
+                                <div class="form-group">
+                                    <select id="staffAdditionid" class="form-control select2"  style="width: 100%;">
+                                        <option value ="-" selected="selected">-</option>  
+                                        
+
+                                    </select>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table id="allocatedUsers" class="table no-margin">
+                                        <thead>
+                                            <tr>
+                                                <th>Allocated Staff Name</th>
+                                                
+                                                <th></th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody id="allocatedUsersbd">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button id="raiseirqid" type="button" class="btn btn-primary" data-dismiss="modal">Raise Request</button>
+                            <button type="button"  class="btn btn-danger" data-dismiss="modal">Exit</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+
+
+
+
+            <div class="modal fade" id="realworkorder" >
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 id="titleid">Work Order Form</h2>
+
+                            <button id="closeAdmin2" type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <div class="modal-body" style="height: 90%">        
+                            <br>
+                            <div class="widget-content nopadding">
+
+                                <strong>   Requester:</strong>
+                                <input type="text" maxlength="20" class="form-control" id="requesterid" placeholder="Name of the person raising issue.." autocomplete="off" spellcheck="">
+
+                                <strong> Type of issue:</strong>
+                                <div class="form-group">
+                                    <select id="typeofissueid" class="form-control select2"  style="width: 100%;">
+                                        <option value ="-" selected="selected">-</option>  
+                                        <option>Computer hardware issue</option>
+                                        <option>Software(General) issue</option>
+                                        <option>Software(ERP) issue</option>                                        
+                                        <option>Printer issue</option>
+                                        <option>Telephone(PABX) issue</option>
+                                        <option>Administrative issue</option>
+                                        <option>Other</option>
+
+                                    </select>
+                                </div>
+
+                                <strong> Location/Area:</strong>
+                                <div class="form-group">
+                                    <select id="locid" class="form-control select2"  style="width: 100%;" >
+                                        <option value ="-" selected="selected">-</option>                          
+                                    </select>
+                                </div>
+
+
+                                <strong>Brief description of issue:</strong>
+
+                                <input type="text"  class="form-control" id="comments" style="height:100px; line-height: 18px; padding-top: -50px" placeholder="Brief description of the problem" autocomplete="off">
+
+
+
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="raiseirqid" type="button" class="btn btn-primary" data-dismiss="modal">Raise Request</button>
+                            <button type="button"  class="btn btn-danger" data-dismiss="modal">Exit</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+
+
+        </div>
+        <!-- /.container -->
+
+
+
+
+        <!--    <footer class="py-5 bg-dark">
+                <div class="container">
+                    <p class="m-0 text-center text-white">Copyright &copy; MTRH Helpdesk & Maintenance System. Brought to you by MTRH ICT</p>
+                </div>
+        <!-- /.container -->
+        <!--   </footer>-->
+
+        <!-- Bootstrap core JavaScript -->
+        <script src="../js/jquery-1.12.4.js"></script>
+        <script src="../js/sb-admin.js"></script>
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Select2 -->
+        <script src="../dist/js/select2.full.min.js"></script>
+
+        <script src="../dist/js/sweetalerts.min.js"></script>
+        <script src="js/mainpage.js"></script>
+
+        <script>
+                                function newIR() {
+                                    $("#realticket").modal({
+                                        keyboard: false
+                                    });
+                                }
+        </script>
+
+
+
+
+    </body>
+
+</html>

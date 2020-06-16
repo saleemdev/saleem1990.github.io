@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Claim>
+    <!--This is a Claim XML document for healthcare-->
+	<Claim_Header>
+		<Invoice_Number>OSLO160134541</Invoice_Number><!--(THIS IS THE CLAIM INVOICE NUMBER PASSED FROM HMIS)-->
+		<Claim_Date>2013-07-18</Claim_Date><!--(CLAIM DATE FROM HMIS)-->
+		<Claim_Time>14:59:45</Claim_Time><!--(CLAIM TIME)-->
+		<Pool_Number>1</Pool_Number><!--(POOL NUMBER PASSED IN THE FORWARDEDCARDCATA.XML. MUST BE PASSED BACK FROM HMIS TO VALIDATE CLAIM DONE ON HMIS AGAINST COVER(POOL TYPE)THAT WAS SELECTED TO BILL THE CARD)-->
+		<Total_Services>5</Total_Services><!--(NUMBER OF SERVICES THAT A PATIENT HAS BEEN GIVEN)-->
+		<Gross_Amount>12000</Gross_Amount><!--(TOTAL AMOUNT OF SERVICES OFFERED TO THE PATIENT. 
+                                                    THIS IS THE AMOUNT TO BE BILLED FROM PATIENT CARD)
+                                                    IT IS THE SUM OF THE INDIVIDUAL SERVICE AMOUNTS-->
+		<Provider>
+			<Role>SP</Role><!-- SP is default; SP – Service Provider (1 Required per claim) 
+                                DP – Dispensing,PR – Prescribing,TR – Treating,RF – Referring,AT – Attending,
+                                AS – Assisting,SC – Specialist,AD – Admitting,CN – Consulting,AN – Anaesthetists,
+                                DS – Discharge,AM – Administrating -->
+			<Country_Code>KEN</Country_Code><!-- Default KEN.(CODE OF THE COUNTRY OF SERVICE) List of ISO Alpha-3 codes http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3 -->
+			<Group_Practice_Number>001</Group_Practice_Number><!--(UNIQUE NUMBER OF SERVICE PROVIDER AS REGISTERED)-->
+			<Group_Practice_Name>The Hospital</Group_Practice_Name><!--(NAME OF THE HOSPITAL)-->
+		</Provider>
+		<Authorization><!-- Optional -->
+			<Pre_Authorization_Number>12</Pre_Authorization_Number><!--(NUMBER GIVEN FOR THE AUTHORIZATION SERVICE)-->
+			<Pre_Authorization_Amount>0</Pre_Authorization_Amount><!-- Default 0 - (AMOUNT OF THE SERVICE)-->
+		</Authorization>
+		<Payment_Modifiers><!-- TYPES: 1-COPAY, 5-NHIF (WE HAVE ONLY DEFINED THESE TWO TYPES FOR NOW)-->
+			<Payment_Modifier>
+				<Type>1</Type>
+				<Amount>2000</Amount>
+				<Receipt>000001</Receipt>
+			</Payment_Modifier>
+			<PaymentModifier>
+				<Type>5</Type><!--TYPE 5 TO CONTAIN NHIF DETAILS COLLECTED BY HMIS-->
+				<NHIF_Member_Nr>0123456789</NHIF_Member_Nr><!--(THIS IS THE NHIF NUMBER OF A MEMBER)-->
+				<NHIF_Contributor_Nr>0987654321</NHIF_Contributor_Nr>
+				<NHIF_Employer_Code>123456</NHIF_Employer_Code>
+				<NHIF_Site_Nr>343</NHIF_Site_Nr>
+				<NHIF_Patient_Relation>Relation</NHIF_Patient_Relation>
+				<Diagnosis_Code>DCode</Diagnosis_Code><!--(DIAGNOSIS CODE - USES ICDC10 CODE)-->
+				<Admit_Date>2000-01-01</Admit_Date><!--(DATE WHEN MEMBER IS ADMITTED)-->
+				<Discharge_Date>2000-01-01</Discharge_Date><!--(DATE WHEN MEMBER IS DISCHARGED FROM HOSPITAL)-->
+				<Days_Used>1</Days_Used><!--(NUMBER OF DAYS MEMBER HAS BEEN IN HOSPITAL)-->
+				<Amount>0</Amount><!--(AMOUNT INCUREED BY THE PATIENT THAT SHOULD BE CHARGED FROM NHIF)-->
+			</PaymentModifier>
+		</Payment_Modifiers>
+	</Claim_Header>
+	<Member>
+		<Membership_Number>8060596</Membership_Number><!--(NUMBER OF THE MEMBER)-->
+                <card_serialnumber>0000001000132B9D</card_serialnumber> (KINDLY INCLUDE THIS LINE IN THE FILE AND GET IT FROM FOWARDED CARD DATA AS <card_serialnumber>0000000D00053C83</card_serialnumber>)
+		<Scheme_Code>UAPA</Scheme_Code><!--(THE SCHEME/PAYER OF THE BILLS)-->
+		<Scheme_Plan>UAPFINAB</Scheme_Plan><!--(INIQUE CLASSIFICATION OF THE MEMBER IN THE SCHEME)-->
+	</Member>
+	<Patient>
+		<Dependant>Y</Dependant><!-- Options Yes (Y), No (N) -->
+		<First_Name>RENEE</First_Name><!--(NAMES OF THE PATIENT)-->
+		<Middle_Name></Middle_Name>
+		<Surname>MWANGI</Surname><!--(PATIENT SURNAME)-->
+		<Date_Of_Birth>2006-12-15</Date_Of_Birth><!--(DATE OF BIRTH OF THE PATIENT)-->
+		<Gender>F</Gender><!-- options: Male (M), Female (F), Unknown (U) -->
+	</Patient>
+	<Claim_Data>
+		<Discharge_Notes>Text Data as Discharge</Discharge_Notes>
+		<Service><!-- Service Types listed -->
+			<Number>1</Number>
+			<Invoice_Number>Inv00001</Invoice_Number><!--(INVOICE NUMBER OF THE CLAIM)-->
+			<Global_Invoice_Nr>Inv987123</Global_Invoice_Nr><!--(GlOBAL INVOICE NUMBER OF ALL THE CLAIMS)-->
+			<Start_Date>2013-07-18</Start_Date>
+			<Start_Time>14:59:45</Start_Time>
+			<Provider>
+				<Role>DP</Role><!-- SP is default; SP – Service Provider (1 Required per claim) 
+                                DP – Dispensing,PR – Prescribing,TR – Treating,RF – Referring,AT – Attending,
+                                AS – Assisting,SC – Specialist,AD – Admitting,CN – Consulting,AN – Anaesthetists,
+                                DS – Discharge,AM – Administrating -->
+				<Practice_Number>Pr00001</Practice_Number><!--PRACTICE NUMBER SPECIFIC TO THIS SERVICE POINT. 
+                                                                            IF NONE PASS GROUP_PRACTICE_NUMBER-->
+			</Provider>
+                        
+                      
+			<Diagnosis>
+				<Stage>P</Stage>
+				<!-- Stages: Primary-P, Secondary-S, Complicated-CP, Co-Morbidity-CM -->
+				<Code_Type>ICD</Code_Type><!-- CodeSet -->
+				<Code>K02.9</Code>
+			</Diagnosis>
+			<Encounter_Type>Medication</Encounter_Type><!--The Encounter types are Consultations, Medication, Procedure and Administration costs-->
+			<Code_Type>Nappi</Code_Type><!-- Code_Set -->
+			<Code>I.903</Code>
+			<Code_Description>Malaria Pills</Code_Description>
+			<Quantity>5</Quantity>
+			<Total_Amount>100</Total_Amount>
+			<Reason></Reason>
+		</Service>
+		<Service><!-- Service Types listed -->
+			<Number>2</Number>
+			<Invoice_Number>Inv00002</Invoice_Number>
+			<Start_Date>2013-07-18</Start_Date>
+			<Start_Time>14:59:45</Start_Time>
+			<Provider>
+				<Role>CN</Role><!-- SP is default; SP – Service Provider (1 Required per claim) 
+                                DP – Dispensing,PR – Prescribing,TR – Treating,RF – Referring,AT – Attending,
+                                AS – Assisting,SC – Specialist,AD – Admitting,CN – Consulting,AN – Anaesthetists,
+                                DS – Discharge,AM – Administrating -->
+				<Practice_Number>Pr00002</Practice_Number><!--PRACTICE NUMBER SPECIFIC TO THIS SERVICE POINT. 
+                                                                            IF NONE PASS GROUP_PRACTICE_NUMBER-->
+			</Provider>
+			<Diagnosis>
+				<Stage>P</Stage>
+				<!-- Stages: Primary-P, Secondary-S, Complicated-CP, Co-Morbidity-CM -->
+				<Code_Type>ICD</Code_Type><!-- CodeSet -->
+				<Code>K02.9</Code>
+			</Diagnosis>
+			<Encounter_Type>Consultation</Encounter_Type>
+			<Code_Type>MCode</Code_Type><!-- Code_Set -->
+			<Code>0151</Code>
+			<Code_Description>
+				PRE-ANAESTHETIC ASSESSMENT: PRE-ANAESTHETIC ASSESS
+			</Code_Description>
+			<Quantity>1</Quantity><!-- Optional depending on service-->
+			<Total_Amount>100</Total_Amount>
+			<Reason></Reason>
+		</Service>
+		<Service><!-- Service Types listed -->
+			<Number>3</Number>
+			<Invoice_Number>Inv00003</Invoice_Number>
+			<Start_Date>2013-07-18</Start_Date>
+			<Start_Time>14:59:45</Start_Time>
+			<Provider>
+				<Role>SC</Role><!-- SP is default; SP – Service Provider (1 Required per claim) 
+                                DP – Dispensing,PR – Prescribing,TR – Treating,RF – Referring,AT – Attending,
+                                AS – Assisting,SC – Specialist,AD – Admitting,CN – Consulting,AN – Anaesthetists,
+                                DS – Discharge,AM – Administrating -->
+				<Practice_Number>Pr00003</Practice_Number><!--PRACTICE NUMBER SPECIFIC TO THIS SERVICE POINT. 
+                                                                            IF NONE PASS GROUP_PRACTICE_NUMBER-->
+			</Provider>
+			<Diagnosis>
+				<Stage>P</Stage>
+				<!-- Stages: Primary-P, Secondary-S, Complicated-CP, Co-Morbidity-CM -->
+				<Code_Type>ICD</Code_Type><!-- CodeSet -->
+				<Code>K02.9</Code>
+			</Diagnosis>
+			<Encounter_Type>Test</Encounter_Type>
+			<Code_Type>Lab</Code_Type><!-- Code_Set -->
+			<Code>A0098</Code>
+			<Code_Description>Blood Test</Code_Description>
+			<Quantity>1</Quantity>
+			<Total_Amount>100</Total_Amount>
+			<Reason></Reason>
+		</Service>
+		<Service><!-- Service Types listed -->
+			<Number>4</Number>
+			<Invoice_Number>Inv00004</Invoice_Number>
+			<Start_Date>2013-07-18</Start_Date>
+			<Start_Time>14:59:45</Start_Time>
+			<Provider>
+				<Role>SC</Role><!-- SP is default; SP – Service Provider (1 Required per claim) 
+                                DP – Dispensing,PR – Prescribing,TR – Treating,RF – Referring,AT – Attending,
+                                AS – Assisting,SC – Specialist,AD – Admitting,CN – Consulting,AN – Anaesthetists,
+                                DS – Discharge,AM – Administrating -->
+				<Practice_Number>Pr00004</Practice_Number><!--PRACTICE NUMBER SPECIFIC TO THIS SERVICE POINT. 
+                                                                            IF NONE PASS GROUP_PRACTICE_NUMBER-->
+			</Provider>
+			<Diagnosis>
+				<Stage>P</Stage>
+				<!-- Stages: Primary-P, Secondary-S, Complicated-CP, Co-Morbidity-CM -->
+				<Code_Type>ICD</Code_Type><!-- CodeSet -->
+				<Code>30100</Code>
+			</Diagnosis>
+			<Encounter_Type>Radiology</Encounter_Type>
+			<Code_Type>MCode</Code_Type><!-- Code_Set -->
+			<Code>Xray001</Code>
+			<Code_Description>Chest X-Ray Scan</Code_Description>
+			<Quantity>1</Quantity>
+			<Total_Amount>100</Total_Amount>
+			<Reason></Reason>
+		</Service>
+		<Service><!-- Service Types listed -->
+			<Number>5</Number>
+			<Invoice_Number>Inv00005</Invoice_Number>
+			<Start_Date>2013-07-18</Start_Date>
+			<Start_Time>14:59:45</Start_Time>
+			<Provider>
+				<Role>AM</Role><!-- SP is default; SP – Service Provider (1 Required per claim) 
+                                DP – Dispensing,PR – Prescribing,TR – Treating,RF – Referring,AT – Attending,
+                                AS – Assisting,SC – Specialist,AD – Admitting,CN – Consulting,AN – Anaesthetists,
+                                DS – Discharge,AM – Administrating -->
+				<Practice_Number>Pr00005</Practice_Number><!--PRACTICE NUMBER SPECIFIC TO THIS SERVICE POINT. 
+                                                                            IF NONE PASS GROUP_PRACTICE_NUMBER-->
+			</Provider>
+			<Diagnosis>
+				<Stage>P</Stage>
+				<!-- Stages: Primary-P, Secondary-S, Complicated-CP, Co-Morbidity-CM -->
+				<Code_Type>ICD</Code_Type><!-- CodeSet -->
+				<Code>K02.9</Code>
+			</Diagnosis>
+			<Encounter_Type>Other</Encounter_Type>
+			<Code_Type>Other</Code_Type><!-- Code_Set -->
+			<Code>Oth1239</Code>
+			<Code_Description>In patient Bed Charge 5 days</Code_Description>
+			<Quantity>5</Quantity>
+			<Total_Amount>100</Total_Amount>
+			<Reason></Reason>
+		</Service>
+	</Claim_Data>
+</Claim>
+

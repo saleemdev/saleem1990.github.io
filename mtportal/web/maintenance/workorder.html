@@ -1,0 +1,186 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Work Order</title>
+        <link rel="stylesheet" href="themes/salimworkorder2.min.css" />
+        <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+        <!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />-->
+        <link rel="stylesheet" href="css/jqm1.45.css" />
+        <link rel="stylesheet" href="../dist/css/select2.min.css">
+
+
+        <style>
+            .ui-input-text {
+                display : inline-block;
+                width   : 85%;
+                vertical-align : middle;
+            }
+            .ui-btn {
+                display : inline-block;
+                /*  width   : 25%;*/
+                vertical-align : middle;
+            }
+
+            #custom-border-radius .ui-btn-icon-notext.ui-corner-all {
+                    -webkit-border-radius: .3125em;
+                    border-radius: .3125em;
+            }
+        </style>
+        <!--  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+          <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+
+        <script src="js/jqm1.11.min.js"></script>
+        <script src="js/jqm1.45.min.js"></script>
+
+
+        <script src="../dist/js/select2.full.min.js"></script>
+
+        <script src="../dist/js/sweetalerts.min.js"></script>
+
+        <script src="js/mainpage.js"></script>
+    </head>
+    <body>
+        <div data-role="page"  data-theme="a" id="one">
+            <div data-role="header" data-position="inline" >
+                <a href="#" id="homeid" data-icon="home">Home</a>
+                <h1>My Work Order</h1>
+                <a href="#" id="backid" data-icon="back">Back</a>
+            </div>
+            <div data-role="content" data-theme="a">
+
+                <input id="wkldid" type="button" data-type="button" data-icon="tag" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-tag" value="My Workload">
+                <input type="button" data-type="button" data-icon="plus" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" value="New Work Order">
+                <table data-role="table" id="table-custom-2"  class="ui-body-d ui-shadow table-stripe ui-responsive"  data-column-popup-theme="a">
+                        <thead>
+                              <tr class="ui-bar-d">
+                                    <th data-priority="2">#</th>
+                                    <th>Request ID</th>
+                                    <th data-priority="1">Request Type</th>
+                            <th> </th>
+                                   <!-- <th data-priority="3"><abbr title="Location of intervention">Location</abbr></th>-->
+
+                                  </tr>
+                            </thead>
+                        <tbody id="table-custom-2bd">
+                              
+                              
+                            </tbody>
+                      </table>
+
+            </div></div>
+
+
+
+
+
+
+        <!-- Start of third page: #popup -->
+        <div data-role="page" id="two">
+
+            <div data-role="header" data-theme="b">
+                <h1>Work Order Form</h1>
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+
+                <p><a href="#one" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-icon-back ui-btn-icon-left">Back</a></p>
+
+                <h2 id="contentid"></h2>
+
+
+
+                <input type="button" data-type="button" data-icon="forward" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-forward" value="Close Job" onclick="closejob('close')">
+                <input type="button" data-type="button" data-icon="bars" class="ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-left" value="Escalate task" onclick="escalate('close')">
+
+                <form>
+                        <label for="textarea-1">Info Box: </label>
+                        <textarea name="textarea-1" id="wholeinfo"></textarea>
+                </form>
+
+                <hr>
+
+
+                <input type="text" name="id" id="activtoadd" placeholder="Type an activity e.g 'Installed Office 2016' and press the 'Add Activity' button" data-icon="plus">
+                <input type="button" data-type="button" data-icon="plus" class="ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-plus ui-btn-icon-left" value="Add Activity" onclick="addact()">
+
+
+
+
+
+                <table data-role="table" id="activitiesTbl"  class="ui-body-d ui-shadow table-stripe ui-responsive" data-theme="a" data-column-popup-theme="a">
+                        <thead>
+                              <tr class="ui-bar-d">
+
+                                    <th>Activity Description</th>
+                                    
+                            <th> </th>
+                            <th> </th>
+                                   <!-- <th data-priority="3"><abbr title="Location of intervention">Location</abbr></th>-->
+
+                                  </tr>
+                            </thead>
+                        <tbody id="activitiestblm">
+                              
+                              
+                            </tbody>
+                      </table>
+
+
+
+
+
+                <!--<p>I have an id of "popup" on my page container and only look like a dialog because the link to me had a <code>data-rel="dialog"</code> attribute which gives me this inset look and a <code>data-transition="pop"</code> attribute to change the transition to pop. Without this, I'd be styled as a normal page.</p>-->
+
+            </div><!-- /content -->
+
+            <div data-role="footer">
+                <h4></h4>
+            </div><!-- /footer -->
+        </div><!-- /page popup -->
+
+
+        <div data-role="page" id="threet">
+
+            <div data-role="header" data-theme="b">
+                <a href="#one" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-icon-back ui-btn-icon-left" data-icon="home">Home</a>
+
+                <h1>My Tasks</h1>
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+
+
+                <table data-role="table" id="taskshandled"  class="ui-body-d ui-shadow table-stripe ui-responsive" data-theme="a" data-column-popup-theme="a">
+                        <thead>
+                              <tr class="ui-bar-d">
+
+                            <th>Task ID</th>                                  
+                            <th>Location</th>
+                            <th>Request Type</th>
+                            <th></th>
+                                
+
+                             </tr>
+                            </thead>
+                            <tbody id="taskshandledbd">
+                              
+                              
+                            </tbody>
+                      </table>
+
+
+
+
+
+                <!--<p>I have an id of "popup" on my page container and only look like a dialog because the link to me had a <code>data-rel="dialog"</code> attribute which gives me this inset look and a <code>data-transition="pop"</code> attribute to change the transition to pop. Without this, I'd be styled as a normal page.</p>-->
+
+            </div><!-- /content -->
+
+            <div data-role="footer">
+                <h4></h4>
+            </div><!-- /footer -->
+        </div><!-- /page popup -->
+
+    </body>
+</html>

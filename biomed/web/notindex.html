@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>MTRH PSR Portal</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="css/modern-business.css" rel="stylesheet">
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+
+        <link href="css/adminlte.css" rel="stylesheet">
+
+        <style>
+            .treb{
+                font-family: "Trebuchet MS", Arial, Verdana;
+                font-size: 28px;
+                padding: 5px;
+                border-bottom-width: 1px;
+                border-bottom-style: solid;
+                border-bottom-color: #CDC1A7;
+
+                color: #993300;
+            }
+
+            #headerid {
+                width: 100%;
+                background: #ccc;
+            }
+
+            #vacanciesDivID {
+                width: 100%;
+                background: #999;
+            }
+            .textDesc{
+                background-color: blue;
+            }
+
+            .container{width:100%;padding-right:5px;padding-left:0px;margin-right:auto;margin-left:auto};
+
+
+            .login-sec{padding: 50px 30px; position:relative;}
+            .login-sec .copy-text{position:absolute; width:80%; bottom:20px; font-size:13px; text-align:center;}
+            .login-sec .copy-text i{color:#FEB58A;}
+            .login-sec .copy-text a{color:#E36262;}
+            .login-sec h2{margin-bottom:30px; font-weight:800; font-size:30px; color: #DE6262;}
+            .login-sec h2:after{content:" "; width:100px; height:5px; background:#FEB58A; display:block; margin-top:20px; border-radius:3px; margin-left:auto;margin-right:auto}
+            .btn-login{background: #DE6262; color:#fff; font-weight:600;}
+        </style>
+
+
+    </head>
+
+    <body>
+
+        <!-- Navigation -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary fixed-top">
+            <div class="container">
+                <a  class="navbar-brand" href="index.html">MTRH Public Service Recruitment Portal</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="embed.html.jsp" id="vacanciesID" class="nav-link" >Track My Application</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Notices</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Help</a>
+                        </li>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+
+        <!-- Page Content -->
+        <div class="container">
+            <h2 class="treb" style="text-align: center"><img src="images/COMPANY_LOG.jpg">     An ISO 9001:2015 Hospital    <img src="images/kebs-logo.PNG"> </h2>
+
+            <div class="row">
+                <div class="col-md-8">
+
+                    <header id="headerid">
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner" role="listbox">
+                                <!-- Slide One - Set the background image for this slide in the line below -->
+                                <div class="carousel-item active" style="background-image: url('/ojas/images/application.jpg')">
+                                    <div class="carousel-caption d-none d-md-block textDesc">
+                                        <h3>1. Apply For Our Jobs</h3>
+                                        <p>Search for and apply for our featured jobs </p>
+                                    </div>
+                                </div>
+                                <!-- Slide Two - Set the background image for this slide in the line below -->
+                                <div class="carousel-item" style="background-image: url('/ojas/images/review.png')">
+                                    <div class="carousel-caption d-none d-md-block textDesc" >
+                                        <h3>2. Wait for a Review</h3>
+                                        <p>A review of your application will take place.</p>
+                                    </div>
+                                </div>
+                                <!-- Slide Three - Set the background image for this slide in the line below -->
+                                <div class="carousel-item" style="background-image: url('/ojas/images/short.jpg')">
+                                    <div class="carousel-caption d-none d-md-block textDesc">
+                                        <h3 class="treb">3. Get Shortlisted For an Interview</h3>
+                                        <p>You will get a notification on your registered e-mail.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </header>
+                </div>
+
+
+                <div class="col-md-4 login-sec">
+                    <h2 class="text-center">Login to Your Dashboard</h2>
+                    <form class="login-form">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="text-uppercase">Sign-In Method</label>                                                                  
+                            <select id="loginType" class="form-control"  style="width: 100%;">
+                                <option value ="-" selected="selected">-</option>
+                                <option>E-mail Address</option>
+                                <option>Phone Number</option>
+                                <option>National ID Number</option>
+                                <option>Student ID Number</option>                                            
+                            </select>                                                                                                   
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="text-uppercase">Login ID</label>                                                                  
+                            <input type="text" class="form-control" placeholder="Email address, Phone No, National/Student ID">                                                                                              
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="text-uppercase">Security Key</label>
+
+                            <div class="row">
+                                <div class="col-md">
+                                    <input type="password" class="form-control" placeholder="">
+                                </div>
+                                <div class="col-sm">
+                                    <button type="button" class="btn btn-success btn-sm float-right">Get Security Key</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-check">
+
+                            <button type="submit" class="btn btn-login">Log In</button>
+                        </div>
+
+                    </form>
+                    <div class="copy-text">Powered by <i class="fa fa-heart"></i> MTRH ICT </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+
+        <!-- /.container -->
+
+        <!-- Footer -->
+
+        <footer >
+            <div class="container">
+                <p class="m-0 text-center text-white">Copyright &copy; Moi Teaching And Referral Hospital, 2018</p>
+            </div>
+            <!-- /.container -->
+        </footer>
+
+        <!-- Bootstrap core JavaScript -->
+
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <script src="js/CustomDash.js"></script>
+
+        <!--Start of Tawk.to Script-->
+        <script type="text/javascript">
+            var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+            (function () {
+                var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+                s1.async = true;
+                s1.src = 'https://embed.tawk.to/5bba7930b8198a0410489ea2/default';
+                s1.charset = 'UTF-8';
+                s1.setAttribute('crossorigin', '*');
+                s0.parentNode.insertBefore(s1, s0);
+            })();
+        </script>
+        <!--End of Tawk.to Script-->
+
+
+    </body>
+
+</html>

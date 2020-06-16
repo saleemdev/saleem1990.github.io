@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>MTRH Career Portal</title>
+
+        <!-- Bootstrap core CSS 
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
+
+
+
+
+        <!-- Custom styles for this template -->
+        <link href="css/modern-business.css" rel="stylesheet">
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/select2.min.css">
+
+        <link href="css/glyphicon.css" rel="stylesheet">
+
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+
+        <link href="css/adminlte.css" rel="stylesheet">
+
+
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+
+
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="js/bootstrap-datepicker.css">
+
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css">
+
+
+
+
+
+
+
+
+        <style>
+
+            .treb{
+                font-family: "Trebuchet MS", Arial, Verdana;
+                font-size: 28px;
+                padding: 5px;
+                border-bottom-width: 1px;
+                border-bottom-style: solid;
+                border-bottom-color: #CDC1A7;
+
+                color: #993300;
+            }
+
+            #headerid {
+                width: 100%;
+                background: #ccc;
+            }
+
+            #vacanciesDivID {
+                width: 100%;
+                background: #999;
+            }
+            .textDesc{
+                background-color: blue;
+            }
+
+            .container{width:100%;padding-right:5px;padding-left:0px;margin-right:auto;margin-left:auto};
+
+
+            .login-sec{padding: 50px 30px; position:relative;}
+            .login-sec .copy-text{position:absolute; width:80%; bottom:20px; font-size:13px; text-align:center;}
+            .login-sec .copy-text i{color:#FEB58A;}
+            .login-sec .copy-text a{color:#E36262;}
+            .login-sec h2{margin-bottom:30px; font-weight:800; font-size:30px; color: #DE6262;}
+            .login-sec h2:after{content:" "; width:100px; height:5px; background:#FEB58A; display:block; margin-top:20px; border-radius:3px; margin-left:auto;margin-right:auto}
+            .btn-login{background: #DE6262; color:#fff; font-weight:600;}
+
+            .modal.modal-wide .modal-dialog {
+                width: 90%;
+            }
+            .modal-wide .modal-body {
+                overflow-y: auto;
+            }
+
+
+            #pageMessages {
+                position: fixed;
+                bottom: 15px;
+                right: 15px;
+                width: 30%;
+            }
+
+            .alert {
+                position: relative;
+            }
+
+            .alert .close {
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                font-size: 1em;
+            }
+
+            .alert .fa {
+                margin-right:.3em;
+            }
+
+        </style>
+
+
+    </head>
+
+    <body>
+
+        <!-- Navigation -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary fixed-top">
+            <div class="container">
+                <!--<img src="images/COMPANY_LOG.jpg"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+                <a  class="navbar-brand" href="index.html">MTRH CAREER PORTAL</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="embed.html.jsp" id="vacanciesID" class="nav-link" >TRACK MY APPLICATION </a>
+                        </li>
+                        <li class="nav-item">
+                            <a  class="nav-link" >|</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link">HOW TO APPLY</a>
+                        </li>
+                        <li class="nav-item">
+                            <a  class="nav-link" >|</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">WHO WE ARE</a>
+                        </li>
+
+                        <!-- <li class="nav-item">
+                             <a id="loginstat" class="nav-link" href="#">Login</a>
+                         </li>-->
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+
+        <!-- Page Content -->
+        <div class="container">
+            <h2 class="treb" style="text-align: center"><img src="images/COMPANY_LOG.jpg">     An ISO 9001:2015 Hospital    <img src="images/kebs-logo.PNG"> </h2>
+
+
+            <div class="row">
+                <div class="col-lg-12 mb-12">
+                    <div class="card h-100">
+
+                        <h4 id="userheaderid" class="card-header">Welcome, you are not signed in  <a href="#"  id="loginstat" >sign in</a> </h4> 
+
+
+                        <div class="card-body">
+                            <p class="card-text">Moi Teaching and Referral Hospital is an equal opportunity employer. Please search through our jobs and apply to the job that matches your interest.</p>
+
+
+                            <h4>Apply a filter below:</h4>
+                            <div class="form-group">
+                                <label><strong>Job Field/Category</strong></label>
+
+                                <select id="jofieldid" class="form-control select2" style="width: 100%;">
+                                    <option value="All" selected="selected">All</option>
+
+
+                                </select>
+
+                                <label><strong>Job ID</strong></label>
+                                <input type="text" class="form-control" id="inputUserid" placeholder="Job ID" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="card-footer">
+
+                            <button id="loginstat2" class="btn btn-link" ></button>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="box-body table-responsive no-padding">
+                    <div class="table-responsive">
+                        <table class="dataTable table table-hover" id="jobslisting" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Job ID</th>
+                                    <th>Description</th>
+
+                                    <th></th>
+
+                                </tr>
+                            </thead>
+
+                            <tbody id="jobslistingbd">
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!--<div class="col-md-8">
+    
+                        <header id="headerid">
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                </ol>
+                                <div class="carousel-inner" role="listbox">
+                    <!-- Slide One - Set the background image for this slide in the line below -->
+                    <!--              <div class="carousel-item active" style="background-image: url('/ojas/images/application.jpg')">
+                                      <div class="carousel-caption d-none d-md-block textDesc">
+                                          <h3>1. Apply For Our Jobs</h3>
+                                          <p>Search for and apply for our featured jobs </p>
+                                      </div>
+                                  </div>
+                    <!-- Slide Two - Set the background image for this slide in the line below -->
+                    <!--        <div class="carousel-item" style="background-image: url('/ojas/images/review.png')">
+                                <div class="carousel-caption d-none d-md-block textDesc" >
+                                    <h3>2. Wait for a Review</h3>
+                                    <p>A review of your application will take place.</p>
+                                </div>
+                            </div>
+                    <!-- Slide Three - Set the background image for this slide in the line below -->
+                    <!--    <div class="carousel-item" style="background-image: url('/ojas/images/short.jpg')">
+                            <div class="carousel-caption d-none d-md-block textDesc">
+                                <h3 class="treb">3. Get Shortlisted For an Interview</h3>
+                                <p>You will get a notification on your registered e-mail.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </header>
+        </div>-->
+
+
+                    <!--<div class="col-md-4 login-sec">
+                        <h2 class="text-center">Login to Your Dashboard</h2>
+                        <form class="login-form">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="text-uppercase">Sign-In Method</label>                                                                  
+                                <select id="loginType" class="form-control"  style="width: 100%;">
+                                    <option value ="-" selected="selected">-</option>
+                                    <option>E-mail Address</option>
+                                    <option>Phone Number</option>
+                                    <option>National ID Number</option>
+                                    <option>Student ID Number</option>                                            
+                                </select>                                                                                                   
+                            </div>
+    
+    
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="text-uppercase">Login ID</label>                                                                  
+                                <input type="text" class="form-control" placeholder="Email address, Phone No, National/Student ID">                                                                                              
+                            </div>
+    
+    
+    
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" class="text-uppercase">Security Key</label>
+    
+                                <div class="row">
+                                    <div class="col-md">
+                                        <input type="password" class="form-control" placeholder="">
+                                    </div>
+                                    <div class="col-sm">
+                                        <button type="button" class="btn btn-success btn-sm float-right">Get Security Key</button>
+                                    </div>
+                                </div>
+                            </div>
+    
+    
+                            <div class="form-check">
+    
+                                <button type="submit" class="btn btn-login">Log In</button>
+                            </div>
+    
+                        </form>
+                        <div class="copy-text">Powered by <i class="fa fa-heart"></i> MTRH ICT </div>
+                    </div>-->
+
+
+
+                </div>
+
+            </div>
+
+
+            <div class="modal modal-default fade" id="dataid">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+
+
+                            <h4 class="modal-title">Secure Access</h4>
+                            <button type="button" id="closeloginid" class="close" data-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="login-form">
+
+
+
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1" class="text-uppercase"><b>Login ID</b></label>                                                                  
+                                    <input id="loginid" type="text" class="form-control" placeholder="National ID, Passport number or Student ID">                                                                                              
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1" class="text-uppercase"><b>Password</b></label>
+
+                                    <div class="row">
+                                        <div class="col-md">
+                                            <input id="pwdid" type="password" class="form-control" placeholder="">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <label id="warninglbl"  class="label-danger"><b></b></label>
+
+                                <div class="form-group">
+
+                                    <button id="submitid" type="button" class="btn btn-login btn-success">Log In</button>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <button type="button" id="newregid" data-dismiss="modal" class="btn btn-link">I AM A NEW USER</button>
+
+                                    <button type="button" class="btn btn-link">FORGOT PASSWORD?</button>
+                                </div>
+
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+
+
+            <div class="modal modal-default fade" id="newregmodal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+
+
+                            <h4 class="modal-title">Fill In your Basic Information</h4>
+                            <button type="button" id="closeloginid" class="close" data-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="login-formreg">
+                                <label for="exampleInputEmail1" class="text-uppercase"><b>Identification Type:</b></label>                                                                  
+                                <div id="idtypedivid" style="border: 2px solid blue;">
+                                    <select id="idtype" class="form-control select2" style="width: 100%;">
+                                        <option value="-Select-" selected="selected">-Select-</option>
+                                        <option>National ID</option>
+                                        <option>Student ID</option>
+                                        <option>Passport Number</option>                                                                       
+
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1" class="text-uppercase"><b>Login ID</b></label>                                                                  
+                                    <input id="loginidreg" type="text" class="form-control" placeholder="National ID, Passport number or Student ID">                                                                                              
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1" class="text-uppercase"><b>First Name</b></label>                                                                  
+                                    <input id="fnameid" type="text" class="form-control" placeholder="">                                                                                              
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1" class="text-uppercase"><b>Last Name</b></label>                                                                  
+                                    <input id="lnameid" type="text" class="form-control" placeholder="">                                                                                              
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1" ><b>E-Mail Address</b></label>                                                                  
+                                    <input id="emailidreg" type="text" class="form-control" placeholder="">                                                                                              
+                                </div>
+
+
+
+
+
+
+                                <label id="warninglblreg"  class="label-danger"><b></b></label>
+
+                                <div class="form-group">
+
+                                    <button id="submitidreg" type="button" class="btn btn-login btn-success">Register</button>
+
+                                    <button id="exitreg" data-dismiss="modal" type="button" class="btn btn-login btn-warning btn-outline">Exit</button>
+
+                                </div>
+
+
+
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+
+
+            <div class="modal modal-default fade" id="photoidmodal">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header">
+
+
+
+                            <button type="button" id="closeloginid" class="close" data-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <img id="blah2" src="http://placehold.it/180" alt="your image" />
+                            
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+
+
+
+        <div class="modal modal-wide fade" id="jobapplicationmodal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+
+                        <h4 id="headeridappl" class="modal-title">JOB APPLICATION FORM</h4>
+                        <button type="button" id="closeloginid" class="close" data-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="japplfrm">
+
+                        </form>
+                        <hr>
+                        <section id="tabs" class="project-tab">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <nav>
+                                            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">1. Basic Details</a>
+                                                <a class="nav-item nav-link" id="nav-bio-tab" data-toggle="tab" href="#nav-bio" role="tab" aria-controls="nav-bio" aria-selected="true">2. Advanced Bio Data</a>
+                                                <a class="nav-item nav-link" id="nav-aca-tab" data-toggle="tab" href="#nav-aca" role="tab" aria-controls="nav-aca" aria-selected="false">3. Academic/Professional Qualifications</a>
+
+                                                <a class="nav-item nav-link" id="nav-uploads-tab" data-toggle="tab" href="#nav-uploads" role="tab" aria-controls="nav-uploads" aria-selected="false">4. Upload Centre</a>
+                                                <a class="nav-item nav-link" id="nav-personal-tab" data-toggle="tab" href="#nav-personal" role="tab" aria-controls="nav-personal" aria-selected="false">5. Personal Disclosure/Application</a>
+                                            </div>
+                                        </nav>
+                                        <div class="tab-content" id="nav-tabContent">
+
+                                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">  <!--Tab One-->
+
+                                                <form id="elbasico" enctype="multipart/form-data">
+                                                    <input autocomplete="off" type="text" name="jobref" id="jobref" readonly class="form-control" placeholder="">    
+                                                    <!--<div class="row">
+                                                         <div class="col">
+                                                             <label for="exampleInputEmail1" class="text-uppercase"><b><font color="red">Passport Size Photo(Max size 373 x 230)*</font></b></label>  
+                                                            <input  name="file" id="passportphotoid" type='file' onchange="readURL(this);" accept="image/jpeg"/>
+                                                            
+                                                             
+                                                         </div>
+                                                         <div class="col">
+                                                             <div class="form-group">
+                                                                
+                                                             </div>
+                                                             <img id="blah" src="http://placehold.it/180" alt="your image" />
+                                                         </div>
+                                                     </div> -->
+
+
+
+                                                    <div class="row">
+                                                        <!-- ./col -->
+                                                        <div class="col">
+                                                            <div class="form-group">
+                                                                <label for="exampleInputEmail1" class="text-uppercase"><b><font color="red">Identification type*</font></b></label>                                                                  
+                                                                <input id="idtypeappl1" name="typeofid" type="text" class="form-control" placeholder="ID type" disabled>                                                                                              
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col">
+                                                            <div class="form-group">
+                                                                <label for="exampleInputEmail1" class="text-uppercase"><b><font color="red">Identification Number*</font></b></label>                                                                  
+                                                                <input id="idnoappl" name="idnoid" type="text" class="form-control" placeholder="ID Number" disabled>                                                                                              
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row">
+
+                                                        <!-- ./col -->
+                                                        <div class="col">
+                                                            <div class="form-group">
+                                                                <label for="exampleInputEmail1" class="text-uppercase"><b><font color="red">First Name*</font></b></label>                                                                  
+                                                                <input id="fnameappl" name="firstnameid" type="text" class="form-control" placeholder="First Name">                                                                                              
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+
+                                                            <div class="form-group">
+                                                                <label for="exampleInputEmail1" class="text-uppercase"><b>Second Name</b></label>                                                                  
+                                                                <input id="snameapll" name="secondnameid" type="text" class="form-control" placeholder="Middle Name">                                                                                              
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="form-group">
+                                                                <label for="exampleInputEmail1" class="text-uppercase"><b><font color="red">Last Name*</font></b></label>                                                                  
+                                                                <input id="lnameappl" name="lastnameid" type="text" class="form-control" placeholder="Surname">                                                                                              
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="form-group">
+                                                                <label for="exampleInputEmail1" class="text-uppercase"><b><font color="red">E-Mail Address*</font></b></label>                                                                  
+                                                                <input id="emailapplid" name="emailaddressid" type="email" class="form-control" placeholder="Email address e.g xxx@yyy.com">                                                                                              
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+
+                                                            <div class="form-group">
+                                                                <label for="exampleInputEmail1" class="text-uppercase"><b><font color="red">Mobile Number*</font></b></label>                                                                  
+                                                                <input id="mobilenoapplid" name="mobilenoid" type="text" class="form-control" placeholder="">                                                                                              
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="form-group">
+                                                                <label for="exampleInputEmail1" class="text-uppercase"><b><font color="red">PIN NUMBER*</font></b></label>                                                                  
+                                                                <input id="pinapplid" name="pinnoid" type="tel" class="form-control" placeholder="e.g KRA PIN">                                                                                              
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <button id="updatebasicoid" type="submit" class="btn btn-primary">UPDATE BASIC BIODATA</button>
+
+                                                </form>
+                                            </div>
+
+                                            <div class="tab-pane fade" id="nav-bio" role="tabpanel" aria-labelledby="nav-home-tab">  <!--Tab Two-->
+                                                <form id="elhefe">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <label for="exampleInputEmail1" class="text-uppercase"><b>Date of Birth</b></label>  
+                                                            <div class="input-group date">
+                                                                <div class="input-group-addon">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </div>
+                                                                <input type="text" class="form-control pull-right" name="dob" id="appldate">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col">
+                                                            <label for="exampleInputEmail1" class="text-uppercase"><b>Gender</b></label>  
+                                                            <!-- Material unchecked -->
+                                                            <div class="form-group">
+
+                                                                <select id="genderapplid" name="genderid" class="form-control select2" style="width: 100%;">
+                                                                    <option value="-" selected="selected">-</option>
+                                                                    <option value="Male" >Male</option>
+                                                                    <option value="Female">Female</option>
+                                                                </select></div>
+                                                        </div>
+
+
+
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="form-group">
+                                                                <label for="exampleInputEmail1" class="text-uppercase"><b>POSTAL ADDRESS</b></label>                                                                  
+                                                                <input id="postaladdrappl" name="postalid" value="-" type="text" class="form-control" placeholder="e.g P.O. BOX XXX-00100 TOWNX">                                                                                              
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col">
+                                                            <div class="form-group">
+                                                                <label for="exampleInputEmail1" class="text-uppercase"><b>NHIF Number</b></label>                                                                  
+                                                                <input id="nhifapplid" name="nhifid" type="text" class="form-control" placeholder="">                                                                                              
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col">
+                                                            <div class="form-group">
+                                                                <label for="exampleInputEmail1" class="text-uppercase"><b>NSSF Number</b></label>                                                                  
+                                                                <input id="nssfapplid" name="nssfid" type="text" class="form-control" placeholder="">                                                                                              
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="form-group">
+                                                                <label for="exampleInputEmail1" class="text-uppercase"><b>Home County</b></label>          
+                                                                <select id="homecountyapplid" name="homecountyid" class="form-control select2" style="width: 100%;">
+                                                                    <option value="-" selected="selected">-</option>
+                                                                </select></div>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="form-group">
+                                                                <label for="exampleInputEmail1" class="text-uppercase"><b>Ethnicity</b></label>          
+                                                                <select id="ethnicityapplid" name="ethnicityid" class="form-control select2" style="width: 100%;">
+                                                                    <option value="-" selected="selected">-</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col">
+                                                            <div class="form-group">
+                                                                <label for="exampleInputEmail1" class="text-uppercase"><b>Sub Group</b></label>          
+                                                                <select id="subgroupapplid" name="subgroupid" class="form-control select2" style="width: 100%;">
+                                                                    <option value="-" selected="selected">-</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="footer">
+                                                        <button id="updatehefe" type="submit" class="btn btn-primary">UPDATE ADVANCED BIO DATA</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div class="tab-pane fade" id="nav-aca" role="tabpanel" aria-labelledby="nav-profile-tab">  <!--Tab Three-->
+                                                <div class="row">
+
+
+                                                    <div class="col">
+                                                        <div class="card h-100">
+                                                            <h4 class="card-header">Instructions:</h4>
+                                                            <div class="card-body">
+                                                                <p class="card-text">1. Please provide your Qualification, Year and Grade/position attained and click the [Add] button .</p>
+                                                                <p class="card-text">2. Ensure the information provided is verifiable through attachment of relevant certificates at the <button class="btn btn-link" onclick="uploadcl()">upload center</button>.</p>
+
+                                                                <p class="card-text"><strong>NB:</strong> Your application will go through ONLY IF you meet the set threshold of the academic qualifications as per job requirements.</p>
+                                                            </div>
+                                                            <div class="card-footer">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1" class="text-uppercase"><b>Qualification:</b></label>          
+                                                            <select id="qualfapplid2" class="form-control select2" style="width: 100%;">
+                                                                <option selected="selected">-</option>
+                                                                <option>Tertiary/Vocational Education</option>
+                                                                <option>Professional Certification</option>
+                                                                <option>Secondary School Certificate</option>                                                                    
+                                                                <option>College Diploma</option>
+                                                                <option>University Degree</option>
+                                                                <option>Postgraduate Diploma</option>
+                                                                <option>Masters Degree</option>
+                                                                <option>Doctorate(PhD) Degree</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1" class="text-uppercase"><b>Year</b></label>          
+                                                            <select id="yearcertaplid" class="form-control select2" style="width: 100%;">
+                                                                <option  selected="selected">-</option>
+                                                                <option >2007</option>
+                                                                <option >2008</option>
+                                                                <option >2009</option>
+
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1" class="text-uppercase"><b>GRADE/POSITION ATTAINED</b></label>          
+                                                            <select id="gradeattained" class="form-control select2" style="width: 100%;">
+                                                                <option  selected="selected">-</option>
+                                                                <option>A</option>
+                                                                <option >A-</option>
+                                                                <option >B+</option>
+                                                                <option >B</option>
+                                                                <option >B-</option>
+                                                                <option >C+</option>
+                                                                <option >C</option>
+                                                                <option >C-</option>
+                                                                <option >PASS</option>
+                                                                <option >CREDIT</option>
+                                                                <option >DISTINCTION</option>
+                                                                <option >FIRST CLASS HONORS</option>
+                                                                <option >SECOND CLASS UPPER DIVISION</option>
+                                                                <option >SECOND CLASS LOWER DIVISION</option>
+                                                                <option >IHRM CERTIFICATE</option>
+                                                                <option >CCNA CERTIFICATION</option>
+                                                                <option >CCNP CERTIFICATE</option>
+
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1" class="text-uppercase"><b>Reference Number(optional) e.g. Membership No., Certificate No etc. </b></label>                                                                  
+                                                            <input id="certrefapplid" value="n/a" type="text" class="form-control" placeholder="">                                                                                              
+                                                        </div>
+                                                    </div>
+
+
+
+                                                </div>
+                                                <label for="exampleInputEmail1" class="text-uppercase"><b></b></label>  
+                                                <button class="btn btn-primary icon-bar" onclick="addact()">Add</button>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <table class="table table-hover" id="qualtbl">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col">#</th>
+                                                                    <th scope="col">Qualification</th>
+                                                                    <th scope="col">Year</th>
+                                                                    <th scope="col">Grade/Position attained</th>
+                                                                    <th scope="col">Ref No.</th>
+                                                                    <th scope="col"></th>
+
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="qualtblbd">
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <p>NB: Academic/Professional qualifications must have been accompanied by a graded assessment</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="nav-personal" role="tabpanel" aria-labelledby="nav-contact-tab">  <!--Tab Four-->
+                                                <!--Start of question-->
+                                                <form>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-md-3 col-lg-6 col-xs-12">
+                                                        <label for="exampleInputEmail1"><b>1. Have you ever been convicted of any criminal offence or a subject of probation order?</b></label>   
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-radio">
+                                                            <label>
+                                                                <input name="offenceappl" value="Yes" type="radio">
+                                                                Yes                                                
+                                                            </label>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-radio">
+                                                            <label>
+                                                                <input name="offenceappl" value="No" type="radio">
+                                                                No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">If yes, State nature of offence, the year and duration of conviction</label>                                                                  
+                                                            <input id="offencetxt" value="n/a" type="text" class="form-control" placeholder="">                                                                                              
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--End of question-->
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-md-3 col-lg-6 col-xs-12">
+                                                        <label for="exampleInputEmail1"><b>2.Have you ever been dismissed or otherwise removed from any employment?</b></label>   
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-radio">
+                                                            <label>
+                                                                <input name="dismissedappl" value="Yes" type="radio">
+                                                                Yes                                                
+                                                            </label>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-radio">
+                                                            <label>
+                                                                <input name="dismissedappl" value="No" type="radio">
+                                                                No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">If YES, Please give details</label>                                                                  
+                                                            <input id="dismissedtxt" value="n/a" type="text" class="form-control" placeholder="">                                                                                              
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--End of question-->
+
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-md-3 col-lg-6 col-xs-12">
+                                                        <label for="exampleInputEmail1"><b>3. Are you living with any disability (ies)?</b></label>   
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-radio">
+                                                            <label>
+                                                                <input name="disabilityappl" value="Yes" type="radio">
+                                                                Yes                                                
+                                                            </label>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-radio">
+                                                            <label>
+                                                                <input name="disabilityappl" value="No" type="radio">
+                                                                No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">If yes, give Details /nature of Disability and attach relevant documentation at the <button class="btn btn-link" onclick="uploadcl()">upload center</button></label>                                                                  
+                                                            <input id="disabilitytxt" value="n/a" type="text" class="form-control" placeholder="">                                                                                              
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--End of question-->
+                                                <div class="footer">
+                                                    <div class="form-check">
+                                                        <label>
+                                                            <input type="checkbox" id="acceptBtn" name="acceptBtn" class="form-check-input">
+                                                            I confirm that the information provided is to the best of my knowledge true and complete and agree to the platform's <a href="">Terms and Conditions</a>. I further confirm that I have not withheld any relevant information.
+                                                        </label>
+                                                    </div>
+                                                    <button type="button" id="confirmBtn1" class="btn btn-primary form-control pull-right" disabled onclick="applyNow()"  >Apply For This Job</button>
+                                                </div>
+                                                </form>
+                                            </div>
+                                            <div class="tab-pane fade" id="nav-uploads" role="tabpanel" aria-labelledby="nav-contact-tab">  <!--Tab Five-->
+                                                <div class="row">
+                                                    <div class="col">   <h3>File Upload:</h3>
+
+
+                                                        <form id="uploadfrm">
+
+                                                            <div class="form-group">
+                                                                <label for="exampleInputEmail1" class="text-uppercase"><b>Job Ref:</b></label>                                                                  
+                                                                <input autocomplete="off" type="text" name="refno" id="refno" readonly class="form-control" placeholder="">                                                                                              
+                                                            </div>
+
+                                                            <!--  <input autocomplete="off" type="text" name="filedesc" id="filedesc" placeholder="-File Description here-" />-->
+                                                            <div class="row">  
+                                                                <div class="col"> 
+                                                                    <div class="form-group">
+                                                                        <label for="exampleInputEmail1" class="text-uppercase"><b>File Description/Type</b></label>          
+                                                                        <select id="filedesc" name="filedesc" class="form-control select2" style="width: 100%;">
+                                                                            <option  selected="selected">-</option>
+                                                                            <option>Curriculum Vitae</option>
+                                                                            <option >Cover Letter</option>
+                                                                            <option >Recommendation Letter</option>
+                                                                            <option >Secondary School Certificate</option>
+                                                                            <option >College Diploma</option>
+                                                                            <option >Undergraduate Degree</option>
+                                                                            <option >Postgraduate Degree</option>
+                                                                            <option >Masters Degree</option>
+                                                                            <option >Doctorate Degree</option>
+                                                                            <option >Membership Certificate</option>
+                                                                            <option >Passport Size Photo</option>
+                                                                            <option >Other</option>                                                                    
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col"> 
+                                                                    <div class="form-group">
+                                                                        <label for="exampleInputEmail1" class="text-uppercase"><b>Other/Comments:</b></label>                                                                  
+                                                                        <input value="-" autocomplete="off" type="text" name="comments" id="comments"  class="form-control" placeholder="">                                                                                              
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="control-group">
+                                                                <label class="control-label">File upload</label>
+                                                                <div class="controls">
+                                                                    <input type="file" id="file" name="file" onchange="readURL(this)"  accept="application/pdf,image/jpeg" />
+
+                                                                </div>
+                                                                <br>
+                                                                <button type="submit" id="updfileidk" class="btn btn-warning">Upload File</button>
+                                                            </div>
+                                                        </form>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <table class="table table-hover" id="attachmenttbl">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col">FileID</th>
+                                                                    <th scope="col">File Description</th>
+                                                                    <th scope="col">Comments</th>                                                                        
+                                                                    <th scope="col"></th>
+                                                                    <th scope="col"></th>
+
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="attachmenttblbd">
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+
+                    <label id="warninglbl"  class="label-danger"><b></b></label>
+
+
+
+
+
+
+
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+
+
+
+        <!-- /.modal-dialog -->
+    </div>
+
+
+    <!-- /.container -->
+
+    <!-- Footer -->
+
+    <footer >
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Moi Teaching And Referral Hospital, 2018</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/jquery-1.12.js"></script>
+
+
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/sweetalerts.min.js"></script>
+
+    <script src="js/bootstrap-datepicker.js"></script>
+
+
+
+    <script src="js/jquery-knob.js"></script>
+
+
+
+
+    <script src="js/select2.min.js"></script>
+
+    <!-- Use as a jQuery plugin -->
+
+
+
+
+
+    <script src="js/CustomDash.js"></script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+                                                                        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+                                                                        (function () {
+                                                                            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+                                                                            s1.async = true;
+                                                                            s1.src = 'https://embed.tawk.to/5bba7930b8198a0410489ea2/default';
+                                                                            s1.charset = 'UTF-8';
+                                                                            s1.setAttribute('crossorigin', '*');
+                                                                            s0.parentNode.insertBefore(s1, s0);
+                                                                        })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+
+</body>
+
+</html>
